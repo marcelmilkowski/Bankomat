@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Main extends Login {
     public Main() {
     }
@@ -9,5 +11,7 @@ public class Main extends Login {
         Login login = new Login();
         login.login(3314);
         System.out.println("haslo gra petarda");
+        System.out.println("i elo nowy tekst");
+        System.out.println("dodalem kolejan linijke i robie pusha");
     }
 }
