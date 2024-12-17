@@ -3,11 +3,7 @@ import java.util.Scanner;
 public class Login {
     int attemps = 3;
     int yourPassword;
-    Scanner scanner;
-
-    public Login() {
-        this.scanner = new Scanner(System.in);
-    }
+    Scanner scanner = new Scanner(System.in);
 
     public void login(int password) {
         while(true) {
@@ -39,8 +35,9 @@ public class Login {
 
                 System.out.println("Podałeś prawidłowe hasło");
             }
-
             return;
+
         }
     }
 }
+
