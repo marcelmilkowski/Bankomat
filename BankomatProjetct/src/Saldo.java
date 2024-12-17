@@ -1,6 +1,7 @@
-public class Saldo extends Person {
+public class Saldo {
+
 
     void balance() {
-        System.out.println("masz" + accountBalance());
+        System.out.println("masz" );
     }
 }
