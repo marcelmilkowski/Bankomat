@@ -1,2 +1,0 @@
-# Bankomat
-Bankomat application
