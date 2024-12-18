@@ -6,15 +6,14 @@ public class Main  {
 
         Person marcel = new Marcel();
         Operations operations = new Operations();
-        Login login = new Login();
 
         System.out.println("Witaj");
         System.out.println("włóż karte");
         System.out.println("Podaj PIN");
 
-        login.login(marcel.codePIN());
+        operations.login(marcel.codePIN());
+        operations.bankOperation();
 
-        operations.operation();
 
 
 
