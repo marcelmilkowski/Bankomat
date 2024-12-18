@@ -1,23 +1,25 @@
+import java.util.Scanner;
 
-public class Main extends Login {
-    public Main() {
-    }
-    static Saldo saldo = new Saldo();
-
+public class Main  {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        Person marcel = new Marcel();
+        Operations operations = new Operations();
+        Login login = new Login();
+
         System.out.println("Witaj");
         System.out.println("włóż karte");
         System.out.println("Podaj PIN");
-        Login login = new Login();
 
-        login.login(3314);
+        login.login(marcel.codePIN());
 
-        System.out.println("Podałeś prawidłowe hasło");
-        System.out.println("czy chcesz zobaczyć saldo?");
-        saldo.balance();
+        operations.operation();
 
-        Person person = new Person("ewka");
-        person.showBalance();
+
+
+
+
 
     }
 }
