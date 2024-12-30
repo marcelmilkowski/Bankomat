@@ -1,68 +1,80 @@
+
+import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import java.util.Scanner;
 
-public class Operations {
-    Scanner scanner = new Scanner(System.in);
-    Saldo saldo = new Saldo();
-    MoneyWithdrawal mw = new MoneyWithdrawal();
+public class Operations extends People{
+    Scanner scanner = new  Scanner(System.in);
     int attemps = 3;
-    int yourPassword;
-    int option;
+    People people = new People();
+    int codePIN;
+    int numberOfOption;
 
-    //PROCES LOGOWANIA
-
-    public void login(int password) {
-        while (true) {
-            if (this.attemps >= 0) {
-                this.yourPassword = this.scanner.nextInt();
-                if (this.yourPassword != password) {
-                    if (this.attemps > 2) {
+    // OPERACJA LOGOWANIA DO BANKU
+    void login() {
+    while (true) {
+        people.addToMap();
+        codePIN = scanner.nextInt();
+            if (!Osoby.containsKey(codePIN)) {
+                if (attemps > 2) {
                         System.out.println("Podałeś nieprawidłowe hasło masz jeszcze 3 próby");
-                        --this.attemps;
-                        continue;
+                        --attemps;
+                    continue;
                     }
-                    if (this.attemps > 1) {
+                    if (attemps > 1) {
                         System.out.println("Podaj hasło jeszcze raz");
-                        --this.attemps;
-                        continue;
-                    }
-                    if (this.attemps > 0) {
-                        System.out.println("Podaj jeszcze raz hasło została Ci ostatnia próba");
-                        --this.attemps;
-                        continue;
-                    }
-                    System.out.println("Hasło jest nieprawidłowe, Proszę odebrać kartę");
-                    System.exit(1);
+                        --attemps;
                     continue;
                 }
-                System.out.println("Podałeś prawidłowe hasło");
-            }
-            return;
-
+                    if (attemps > 0) {
+                        System.out.println("Podaj jeszcze raz hasło została Ci ostatnia próba");
+                        --attemps;
+                    continue;
+                    }
+            System.out.println("Hasło jest nieprawidłowe, Proszę odebrać kartę");
+            System.exit(1);
+            continue;
+        }
+        break;
         }
     }
-
-//PROCES WYBIERANIA OPERACJI
-
-    void bankOperation() {
-        System.out.println("wybierz operację jaką chcesz wykonać");
-        System.out.println("1 - Zobacz saldo swojego konta");
-        System.out.println("2 - Wypłać pięniądze z konta");
-        System.out.println("3 - Wyjmij kartę");
+     // OPERACJA WYBORU
+    void CheckingOperation(){
         do {
-            option = scanner.nextInt();
+            System.out.println("WYBIERZ OPCJE");
+            System.out.println("Opcja 1. Sprawdź saldo");
+            System.out.println("Opcja 2. Wypłać pieniądzę");
+            System.out.println("Opcja 3. Wpłać pieniądzę");
+            System.out.println("Opcja 4. Wyloguj");
 
-            switch (option) {
-                case 1:
-                    saldo.Marcel();
+            numberOfOption = scanner.nextInt();
+                switch(numberOfOption) {
+                    case 1:
+                        System.out.printf("Twoje saldo wynosi: "+ "%.2f", Osoby.get(codePIN).getBalance());
+                        System.out.println("zł");
                     break;
-                case 2:
-                    mw.wypłataszmalu();
+                    case 2:
+                        System.out.println("Wypłata pieniędzy");
+                        System.out.println("Podaj kwotę jaką chcesz wypłacić");
+                        double withdraw = scanner.nextInt();
+                        Osoby.get(codePIN).setBalanceWithdraw(withdraw);
                     break;
-            }
-        } while (option < 3) ;{
-            System.out.println("nara");
-        }
+                    case 3:
+                        System.out.println("Wpłata pieniędzy");
+                        System.out.println("Podaj kwotę jaką chcesz wpłacić");
+                        double payment = scanner.nextInt();
+                        Osoby.get(codePIN).setBalancePayment(payment);
+                    default:
+                    System.out.println("Wylogowano, dziękujemy za skorzystanie z naszych usług.");
+                    }
+        } while (numberOfOption != 4);
+
     }
+
+
+
+
 }
+
+
 
 
