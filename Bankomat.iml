@@ -3,7 +3,11 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
       <sourceFolder url="file://$MODULE_DIR$/BankomatProjetct/src" isTestSource="false" />
+=======
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+>>>>>>> 8f8338cc2a3d5f556474a41635d74740e8b47130
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
