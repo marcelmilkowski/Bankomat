@@ -55,13 +55,13 @@ public class Operations extends People{
                     case 2:
                         System.out.println("Wypłata pieniędzy");
                         System.out.println("Podaj kwotę jaką chcesz wypłacić");
-                        double withdraw = scanner.nextInt();
+                        double withdraw = scanner.nextDouble();
                         Osoby.get(codePIN).setBalanceWithdraw(withdraw);
                     break;
                     case 3:
                         System.out.println("Wpłata pieniędzy");
                         System.out.println("Podaj kwotę jaką chcesz wpłacić");
-                        double payment = scanner.nextInt();
+                        double payment = scanner.nextDouble();
                         Osoby.get(codePIN).setBalancePayment(payment);
                     default:
                     System.out.println("Wylogowano, dziękujemy za skorzystanie z naszych usług.");
